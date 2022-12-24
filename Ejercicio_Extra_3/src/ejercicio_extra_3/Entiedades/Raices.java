@@ -4,15 +4,20 @@
  */
 package ejercicio_extra_3.Entiedades;
 
+import java.util.Scanner;
+
 /**
  *
  * @author droa
  */
 public class Raices {
     // Atributos
-    private float a;
-    private float b;
-    private float c;
+    
+    Scanner leer = new Scanner(System.in).useDelimiter("\n");
+    
+    private float a=0;
+    private float b=0;
+    private float c=0;
     
     //Constructures
 
@@ -32,6 +37,7 @@ public class Raices {
             if(getDiscriminante()>=0){
                 respuesta=true;
             }
+            
         return respuesta;
     }
     public boolean tieneRaiz(){
@@ -39,9 +45,28 @@ public class Raices {
             if(getDiscriminante()==0){
                 respuesta=true;
             }
+            
         return respuesta;
     }
     public void obtenerRaices(){
-        
+        if(tieneRaices()){
+            System.out.println("Raiz 1: "+((-b+Math.sqrt(Math.pow(b, 2)-(4*a*c)))/(2*a)));
+            System.out.println("Raiz 2: "+((-b-Math.sqrt(Math.pow(b, 2)-(4*a*c)))/(2*a)));
+        }
+    }
+    public void obtenerRaiz(){
+        if(tieneRaiz()){
+            System.out.println("Raiz 1: "+((-b+Math.sqrt(Math.pow(b, 2)-(4*a*c)))/(2*a)));
+            System.out.println("Raiz 2: "+((-b-Math.sqrt(Math.pow(b, 2)-(4*a*c)))/(2*a)));
+        }
+    }
+    public void calcular(){
+        if(tieneRaices()){
+            obtenerRaices();
+        }else if(tieneRaiz()){
+            obtenerRaiz();
+        }else{
+            System.out.println("Ecuación no tiene Soluciones");
+        }
     }
 }
