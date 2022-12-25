@@ -27,6 +27,24 @@ public class Raices {
         this.c = c;
     }
     
+    // Métodos 
+
+    public void setA(float a) {
+        this.a = a;
+    }
+
+    public void setB(float b) {
+        this.b = b;
+    }
+
+    public void setC(float c) {
+        this.c = c;
+    }
+    
+    
+    
+    // Métodos Propios
+    
     public double getDiscriminante(){
         double discriminante;
             discriminante=(double)(Math.pow(b, 2f)-(4f*a*c));
@@ -69,4 +87,11 @@ public class Raices {
             System.out.println("Ecuación no tiene Soluciones");
         }
     }
+
+    @Override
+    public String toString() {
+        return "Raices{" + "a=" + a + ", b=" + b + ", c=" + c + '}';
+    }
+    
+    
 }
