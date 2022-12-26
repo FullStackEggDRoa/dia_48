@@ -24,26 +24,27 @@ public class Ejercicio_Extra_3 {
         String a_aux="";
         String b_aux="";
         String c_aux="";
-        String coeficientesAux="";
+        String[] coeficientesAux;
         boolean flag_c=false;
         
         do {
+            
             System.out.print("Ingrese los coeficientes [a,b,c]: ");            
             String coeficientes=leer.next();
-            coeficientesAux=coeficientes;
-            if(coeficientesAux.contains(",")){
-                a_aux=coeficientes.substring(0,coeficientes.indexOf(","));
-                coeficientesAux=coeficientes.substring(coeficientes.indexOf(",")+1,coeficientes.length());
-            }else if(coeficientesAux.contains(",")){    
-                b_aux=coeficientes.substring(coeficientes.indexOf(",")+1,coeficientes.lastIndexOf(","));
-                coeficientesAux=coeficientes.substring(coeficientes.lastIndexOf(",")+1,coeficientes.length());
-            }else{
-                c_aux=coeficientes.substring(coeficientes.lastIndexOf(",")+1,coeficientes.length());
+            coeficientesAux=coeficientes.split(",", 5);
+            if(coeficientesAux.length>=3){
+                a_aux=coeficientesAux[0];
+                b_aux=coeficientesAux[1];
+                c_aux=coeficientesAux[2];
             }
+            
         } while (a_aux.equals("") || b_aux.equals("") || c_aux.equals(""));
         
         Raices r1= new Raices((float)Integer.parseInt(a_aux),(float)Integer.parseInt(b_aux),(float)Integer.parseInt(c_aux));
         System.out.println(r1.toString());
+        System.out.println("Calculando Raíces.....");
+        r1.calcular();
+        
     }
     
 }

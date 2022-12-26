@@ -52,7 +52,7 @@ public class Raices {
     }
     public boolean tieneRaices(){
         boolean respuesta=false;
-            if(getDiscriminante()>=0){
+            if(getDiscriminante()>0){
                 respuesta=true;
             }
             
@@ -68,14 +68,14 @@ public class Raices {
     }
     public void obtenerRaices(){
         if(tieneRaices()){
-            System.out.println("Raiz 1: "+((-b+Math.sqrt(Math.pow(b, 2)-(4*a*c)))/(2*a)));
-            System.out.println("Raiz 2: "+((-b-Math.sqrt(Math.pow(b, 2)-(4*a*c)))/(2*a)));
+            System.out.println("Raiz 1: "+String.format("%.5g",((-b+Math.sqrt(Math.pow(b, 2)-(4*a*c)))/(2*a))));
+            System.out.println("Raiz 2: "+String.format("%.5g", ((-b-Math.sqrt(Math.pow(b, 2)-(4*a*c)))/(2*a))));
         }
     }
     public void obtenerRaiz(){
         if(tieneRaiz()){
-            System.out.println("Raiz 1: "+((-b+Math.sqrt(Math.pow(b, 2)-(4*a*c)))/(2*a)));
-            System.out.println("Raiz 2: "+((-b-Math.sqrt(Math.pow(b, 2)-(4*a*c)))/(2*a)));
+            System.out.println("Raiz: "+String.format("%.5g", ((-b+Math.sqrt(Math.pow(b, 2)-(4*a*c)))/(2*a))));
+            //System.out.println("Raiz 2: "+((-b-Math.sqrt(Math.pow(b, 2)-(4*a*c)))/(2*a)));
         }
     }
     public void calcular(){
