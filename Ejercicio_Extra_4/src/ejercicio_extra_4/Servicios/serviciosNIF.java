@@ -4,6 +4,7 @@
  */
 package ejercicio_extra_4.Servicios;
 
+import ejercicio_extra_4.Entidades.NIF;
 import java.util.Scanner;
 
 /**
@@ -14,19 +15,30 @@ public class serviciosNIF {
     
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
     
-    public void crearNif(){
+    public NIF crearNif(){
     
-        System.out.print("Ingrese el Número DNI: ");
-        String dni=leer.next();
-        String[] dniAux=dni.split(".", 5);
-        switch (dniAux.length) {
-            case 3 -> { long dniAuxFormated=(long)Integer.parseInt(dniAux[0]+dniAux[1]+dniAux[2]); } 
-            case 2 -> { long dniAuxFormated=(long)Integer.parseInt(dniAux[0]+dniAux[1]); }  
-            case 1 -> { long dniAuxFormated=(long)Integer.parseInt(dniAux[0]);}
-            default -> System.out.println("Número DNI Ingresaod Erradamente"); 
-            
+        CharSequence chars_NFI = "TRWAGMYFPDXBNJZSQVHLCKE";
+        long dniAuxFormateado=0;
+        
+        do { 
+            System.out.print("Ingrese el Número DNI: ");
+            String dni=leer.next();
+            String[] dniAux=dni.split("\\.", 0);
+            switch (dniAux.length) {
+            case 3 -> { dniAuxFormateado=(long)Integer.parseInt(dniAux[0]+dniAux[1]+dniAux[2]); } 
+            case 2 -> { dniAuxFormateado=(long)Integer.parseInt(dniAux[0]+dniAux[1]); }  
+            case 1 -> { dniAuxFormateado=(long)Integer.parseInt(dniAux[0]);}
+            default -> System.out.println("Número DNI Ingresado Erradamente"); 
         }
+        } while (String.valueOf(dniAuxFormateado).length()>8);
+        
+        int restoDni=(int)dniAuxFormateado%23;
+        char letra=chars_NFI.charAt(restoDni);
+        
+        return new NIF(dniAuxFormateado, letra);
     }
+
+ 
     
     
 }

@@ -43,6 +43,8 @@ public class NIF {
         this.letra = letra;
     }
     
-    
+    public void mostrar(){
+        System.out.println("Código NIF Generado: "+this.DNI+"-"+this.letra);
+    }
     
 }

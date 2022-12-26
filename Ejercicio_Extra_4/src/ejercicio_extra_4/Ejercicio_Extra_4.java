@@ -4,6 +4,9 @@
  */
 package ejercicio_extra_4;
 
+import ejercicio_extra_4.Entidades.NIF;
+import ejercicio_extra_4.Servicios.serviciosNIF;
+
 /**
  *
  * @author droa
@@ -15,7 +18,10 @@ public class Ejercicio_Extra_4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("");
-    }
+        System.out.println("Creación Dígito Verificador");
+        serviciosNIF sN = new serviciosNIF();
+        NIF n1 = sN.crearNif();
+        n1.mostrar();
+    }   
     
 }
